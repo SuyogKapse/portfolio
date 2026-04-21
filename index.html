@@ -1,1 +1,310 @@
-<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <title>Portfolio</title>\n    <link rel="stylesheet" href="styles.css">\n</head>\n<body>\n    <header>\n        <div class="hero">\n            <h1>Welcome to My Portfolio</h1>\n            <p>Your gateway to my work and achievements</p>\n        </div>\n    </header>\n    <section id="about">\n        <h2>About Me</h2>\n        <p>Brief introduction about yourself.</p>\n    </section>\n    <section id="skills">\n        <h2>Skills</h2>\n        <ul>\n            <li>Skill 1</li>\n            <li>Skill 2</li>\n            <li>Skill 3</li>\n        </ul>\n    </section>\n    <section id="experience">\n        <h2>Experience</h2>\n        <p>Details about your work experience.</p>\n    </section>\n    <section id="contact">\n        <h2>Contact Me</h2>\n        <form>\n            <label for="name">Name:</label>\n            <input type="text" id="name" name="name" required>\n            <label for="email">Email:</label>\n            <input type="email" id="email" name="email" required>\n            <label for="message">Message:</label>\n            <textarea id="message" name="message" required></textarea>\n            <button type="submit">Send</button>\n        </form>\n    </section>\n    <footer>\n        <p>&copy; 2026 Suyog Kapse</p>\n    </footer>\n</body>\n</html>\n
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suyog Kapse — Cloud Consultant</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --white: #ffffff;
+  --off: #f7f7f5;
+  --light: #efefec;
+  --border: #e0dfd9;
+  --text: #1a1a18;
+  --muted: #767670;
+  --accent: #1a56db;
+  --accent-light: #eff3ff;
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--text); font-size: 15px; line-height: 1.6; }
+
+/* NAV */
+nav { position: sticky; top: 0; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); z-index: 100; padding: 0 2.5rem; display: flex; align-items: center; justify-content: space-between; height: 60px; }
+.logo { font-family: 'DM Serif Display', serif; font-size: 1.15rem; color: var(--text); }
+nav ul { list-style: none; display: flex; gap: 0.25rem; }
+nav a { display: block; padding: 0.4rem 0.9rem; font-size: 0.82rem; font-weight: 500; color: var(--muted); text-decoration: none; border-radius: 6px; transition: all 0.15s; }
+nav a:hover { color: var(--text); background: var(--light); }
+
+/* LAYOUT */
+.container { max-width: 900px; margin: 0 auto; padding: 0 2.5rem; }
+
+/* HERO */
+.hero-wrap { border-bottom: 1px solid var(--border); padding: 4.5rem 0 3.5rem; }
+.hero-inner { display: grid; grid-template-columns: 1fr auto; gap: 3rem; align-items: start; }
+.hero-photo { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; border: 3px solid var(--border); box-shadow: 0 4px 20px rgba(0,0,0,0.1); flex-shrink: 0; }
+.status-badge { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; font-weight: 500; color: #166534; background: #f0fdf4; border: 1px solid #bbf7d0; padding: 0.25rem 0.75rem; border-radius: 99px; margin-bottom: 1.5rem; }
+.status-dot { width: 6px; height: 6px; background: #22c55e; border-radius: 50%; animation: blink 2s ease-in-out infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+h1 { font-family: 'DM Serif Display', serif; font-size: clamp(2.4rem,5vw,3.2rem); font-weight: 400; line-height: 1.15; letter-spacing: -0.01em; margin-bottom: 0.75rem; }
+.hero-role { font-size: 0.9rem; font-weight: 500; color: var(--accent); margin-bottom: 1.25rem; }
+.hero-desc { color: var(--muted); max-width: 480px; line-height: 1.75; margin-bottom: 2rem; font-size: 0.9rem; }
+.btn-row { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+.btn { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.6rem 1.25rem; font-family: 'DM Sans', sans-serif; font-size: 0.82rem; font-weight: 600; border-radius: 8px; text-decoration: none; transition: all 0.15s; cursor: pointer; border: none; }
+.btn-primary { background: var(--accent); color: #fff; }
+.btn-primary:hover { background: #1447b8; transform: translateY(-1px); }
+.btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
+.btn-outline:hover { border-color: #b0b0aa; background: var(--off); transform: translateY(-1px); }
+
+/* HERO CARD */
+.hero-card { background: var(--off); border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem; min-width: 220px; display: flex; flex-direction: column; gap: 0.9rem; }
+.hero-card-item { display: flex; align-items: center; gap: 0.75rem; font-size: 0.8rem; color: var(--muted); text-decoration: none; transition: color 0.15s; }
+.hero-card-item:hover { color: var(--accent); }
+.hci { width: 30px; height: 30px; background: var(--white); border: 1px solid var(--border); border-radius: 7px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--text); }
+.card-divider { height: 1px; background: var(--border); }
+
+/* SECTIONS */
+section { padding: 3.5rem 0; border-bottom: 1px solid var(--border); }
+.sec-header { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 2rem; }
+.sec-num { font-size: 0.72rem; font-weight: 600; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; }
+h2 { font-family: 'DM Serif Display', serif; font-size: 1.6rem; font-weight: 400; letter-spacing: -0.01em; }
+
+/* SKILLS */
+.skills-wrap { display: flex; flex-direction: column; gap: 0.85rem; }
+.skill-row { display: flex; align-items: center; gap: 1.25rem; padding: 0.9rem 1.1rem; background: var(--off); border: 1px solid var(--border); border-radius: 10px; transition: border-color 0.15s; }
+.skill-row:hover { border-color: #c0bfb9; }
+.skill-icon-wrap { width: 36px; height: 36px; background: var(--white); border: 1px solid var(--border); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+.skill-info { flex: 1; }
+.skill-name { font-size: 0.85rem; font-weight: 600; color: var(--text); margin-bottom: 0.1rem; }
+.skill-desc { font-size: 0.75rem; color: var(--muted); }
+.skill-bar-wrap { width: 90px; height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; }
+.skill-bar { height: 100%; background: var(--accent); border-radius: 2px; width: 0; transition: width 0.9s ease; }
+
+/* PROJECTS */
+.projects-wrap { display: flex; flex-direction: column; gap: 1.25rem; }
+.project-card { border: 1px solid var(--border); border-radius: 12px; padding: 1.75rem; transition: box-shadow 0.2s, border-color 0.2s; }
+.project-card:hover { border-color: #c4c3bc; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+.project-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 0.75rem; gap: 1rem; }
+.project-title { font-weight: 600; font-size: 1rem; }
+.project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; flex-shrink: 0; }
+.tag { font-size: 0.7rem; font-weight: 500; padding: 0.15rem 0.6rem; background: var(--accent-light); color: var(--accent); border-radius: 99px; white-space: nowrap; }
+.project-list { list-style: none; display: flex; flex-direction: column; gap: 0.35rem; margin-bottom: 1.25rem; }
+.project-list li { font-size: 0.845rem; color: var(--muted); padding-left: 1rem; position: relative; line-height: 1.6; }
+.project-list li::before { content: '–'; position: absolute; left: 0; color: var(--border); }
+.tech-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; padding-top: 1rem; border-top: 1px solid var(--border); }
+.chip { font-size: 0.7rem; font-weight: 500; padding: 0.2rem 0.65rem; background: var(--off); border: 1px solid var(--border); border-radius: 5px; color: var(--muted); }
+
+/* ABOUT */
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+.about-text p { font-size: 0.875rem; color: var(--muted); line-height: 1.8; margin-bottom: 1rem; }
+.about-text p strong { color: var(--text); font-weight: 600; }
+.education-card { background: var(--off); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; }
+.edu-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; }
+.edu-item { padding: 0.75rem 0; border-bottom: 1px solid var(--border); }
+.edu-item:last-child { border-bottom: none; padding-bottom: 0; }
+.edu-degree { font-size: 0.85rem; font-weight: 600; color: var(--text); margin-bottom: 0.2rem; }
+.edu-school { font-size: 0.78rem; color: var(--muted); }
+.edu-year { font-size: 0.72rem; color: var(--accent); margin-top: 0.15rem; font-weight: 500; }
+.interests-row { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+.interest-chip { display: flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; font-weight: 500; padding: 0.35rem 0.9rem; background: var(--off); border: 1px solid var(--border); border-radius: 99px; color: var(--muted); }
+
+/* CONTACT */
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.contact-card { display: flex; align-items: center; gap: 1rem; padding: 1.25rem 1.5rem; border: 1px solid var(--border); border-radius: 12px; text-decoration: none; color: var(--text); transition: all 0.15s; }
+.contact-card:hover { border-color: var(--accent); background: var(--accent-light); color: var(--accent); transform: translateY(-2px); box-shadow: 0 4px 16px rgba(26,86,219,0.08); }
+.cc-icon { width: 40px; height: 40px; border: 1px solid var(--border); border-radius: 9px; background: var(--off); display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background 0.15s; }
+.contact-card:hover .cc-icon { background: rgba(26,86,219,0.1); border-color: rgba(26,86,219,0.2); }
+.cc-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.15rem; }
+.cc-value { font-size: 0.82rem; font-weight: 500; }
+
+/* FOOTER */
+footer { padding: 1.75rem 2.5rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem; color: var(--muted); }
+footer span { color: var(--text); font-weight: 500; }
+
+/* FADE */
+.fade { opacity: 0; transform: translateY(14px); transition: opacity 0.5s ease, transform 0.5s ease; }
+.fade.in { opacity: 1; transform: none; }
+
+/* RESPONSIVE */
+@media (max-width: 700px) {
+  nav ul { display: none; }
+  nav, .container { padding: 0 1.5rem; }
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-card { display: none; }
+  .about-grid { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; }
+  footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Suyog Kapse</div>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero-wrap">
+<div class="container">
+  <div class="hero-inner">
+    <div>
+      <div class="status-badge"><span class="status-dot"></span>Open to opportunities</div>
+      <h1>Suyog Gajanan<br>Kapse</h1>
+      <p class="hero-role">Associate Cloud Consultant &nbsp;·&nbsp; DevOps Engineer</p>
+      <p class="hero-desc">Building scalable cloud infrastructure on Microsoft Azure. Specialising in DevOps automation, containerisation, and CI/CD pipelines that help teams deploy faster and more reliably.</p>
+      <div class="btn-row">
+        <a href="Cv_Suyog_Kapse.pdf" download="Suyog_Kapse_Resume.pdf" class="btn btn-primary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download Resume
+        </a>
+        <a href="#contact" class="btn btn-outline">Get in Touch</a>
+      </div>
+    </div>
+    <img src="suyog.jpeg" alt="Suyog Kapse" class="hero-photo fade">
+  </div>
+</div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+<div class="container">
+  <div class="sec-header"><span class="sec-num">01</span><h2>About Me</h2></div>
+  <div class="about-grid">
+    <div class="about-text fade">
+      <p>I'm a cloud and DevOps professional currently working as an <strong>Associate Cloud Consultant</strong>, based in Pune. I focus on building reliable, automated infrastructure on <strong>Microsoft Azure</strong> that helps development teams move faster and more confidently.</p>
+      <p>My core expertise spans containerisation with <strong>Docker</strong>, infrastructure-as-code using <strong>Terraform</strong>, and end-to-end <strong>CI/CD pipeline</strong> design with Azure DevOps — bringing automation and consistency to every stage of the software lifecycle.</p>
+      <p>Outside of work, I enjoy cricket and chess.</p>
+      <div class="interests-row" style="margin-top:1.5rem;">
+        <div class="interest-chip">🏏 Cricket</div>
+        <div class="interest-chip">♟ Chess</div>
+        <div class="interest-chip">☁️ Cloud</div>
+      </div>
+    </div>
+    <div class="fade">
+      <div class="education-card">
+        <div class="edu-label">Education</div>
+        <div class="edu-item">
+          <div class="edu-degree">B.E. Instrumentation &amp; Control Engineering</div>
+          <div class="edu-school">D.Y. Patil College of Engineering, Pune</div>
+          <div class="edu-year">2021 – 2025 &nbsp;·&nbsp; CGPA 7.5</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-degree">HSC (12th), MSBSHSE</div>
+          <div class="edu-school">Fergusson College, Pune</div>
+          <div class="edu-year">2019 – 2021 &nbsp;·&nbsp; 70%</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+<div class="container">
+  <div class="sec-header"><span class="sec-num">02</span><h2>Skills</h2></div>
+  <div class="skills-wrap">
+    <div class="skill-row fade"><div class="skill-icon-wrap">☁️</div><div class="skill-info"><div class="skill-name">Microsoft Azure</div><div class="skill-desc">App Service, Pipelines, Resource Groups</div></div><div class="skill-bar-wrap"><div class="skill-bar" data-w="90"></div></div></div>
+    <div class="skill-row fade"><div class="skill-icon-wrap">🐳</div><div class="skill-info"><div class="skill-name">Docker</div><div class="skill-desc">Containerisation, Docker Compose, Docker Hub</div></div><div class="skill-bar-wrap"><div class="skill-bar" data-w="88"></div></div></div>
+    <div class="skill-row fade"><div class="skill-icon-wrap">🔁</div><div class="skill-info"><div class="skill-name">CI / CD</div><div class="skill-desc">Azure DevOps Pipelines, YAML, Automated Deployments</div></div><div class="skill-bar-wrap"><div class="skill-bar" data-w="85"></div></div></div>
+    <div class="skill-row fade"><div class="skill-icon-wrap">🏗️</div><div class="skill-info"><div class="skill-name">Terraform</div><div class="skill-desc">Infrastructure as Code, Cloud Provisioning</div></div><div class="skill-bar-wrap"><div class="skill-bar" data-w="78"></div></div></div>
+    <div class="skill-row fade"><div class="skill-icon-wrap">🐧</div><div class="skill-info"><div class="skill-name">Linux</div><div class="skill-desc">System Administration, Shell Scripting, Bash</div></div><div class="skill-bar-wrap"><div class="skill-bar" data-w="82"></div></div></div>
+    <div class="skill-row fade"><div class="skill-icon-wrap">🔀</div><div class="skill-info"><div class="skill-name">Git &amp; GitHub</div><div class="skill-desc">Version Control, Branching, Collaboration</div></div><div class="skill-bar-wrap"><div class="skill-bar" data-w="87"></div></div></div>
+    <div class="skill-row fade"><div class="skill-icon-wrap">🐍</div><div class="skill-info"><div class="skill-name">Python</div><div class="skill-desc">Scripting, Automation</div></div><div class="skill-bar-wrap"><div class="skill-bar" data-w="70"></div></div></div>
+  </div>
+</div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+<div class="container">
+  <div class="sec-header"><span class="sec-num">03</span><h2>Projects</h2></div>
+  <div class="projects-wrap">
+    <div class="project-card fade">
+      <div class="project-top">
+        <div class="project-title">YouTube Clone — CI/CD Pipeline</div>
+        <div class="project-tags"><span class="tag">Azure DevOps</span><span class="tag">Docker</span></div>
+      </div>
+      <ul class="project-list">
+        <li>Built a complete CI/CD pipeline using Azure DevOps to automate the build, test, and deployment of a web application.</li>
+        <li>Configured Azure Pipelines with YAML and classic editor for auto-triggered deployments on code push.</li>
+        <li>Deployed to Azure App Service with continuous integration and delivery integrated via GitHub.</li>
+        <li>Containerised the application using Docker and published the image to Docker Hub for versioned releases.</li>
+      </ul>
+      <div class="tech-chips">
+        <span class="chip">Azure DevOps</span><span class="chip">Azure App Service</span><span class="chip">Docker</span><span class="chip">Docker Hub</span><span class="chip">YAML</span><span class="chip">GitHub</span>
+      </div>
+    </div>
+    <div class="project-card fade">
+      <div class="project-top">
+        <div class="project-title">3-Tier Docker Application</div>
+        <div class="project-tags"><span class="tag">Docker</span><span class="tag">React · Node · MongoDB</span></div>
+      </div>
+      <ul class="project-list">
+        <li>Designed a 3-tier architecture with React.js (frontend), Node.js (backend), and MongoDB (database).</li>
+        <li>Containerised each tier with optimised Dockerfiles for isolated, reproducible environments.</li>
+        <li>Orchestrated multi-container deployment with Docker Compose managing inter-service communication.</li>
+        <li>Configured ports, environment variables, and verified end-to-end container connectivity.</li>
+      </ul>
+      <div class="tech-chips">
+        <span class="chip">Docker</span><span class="chip">Docker Compose</span><span class="chip">React.js</span><span class="chip">Node.js</span><span class="chip">MongoDB</span>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<div class="container">
+  <div class="sec-header"><span class="sec-num">04</span><h2>Get in Touch</h2></div>
+  <p style="color:var(--muted);font-size:0.875rem;margin-bottom:1.75rem;max-width:480px;line-height:1.75;">Open to new roles, freelance projects, or a conversation about cloud and DevOps. Reach out through any channel below.</p>
+  <div class="contact-grid">
+    <a href="mailto:Suyogkkapse@gmail.com" class="contact-card fade">
+      <div class="cc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+      <div><div class="cc-label">Email</div><div class="cc-value">Suyogkkapse@gmail.com</div></div>
+    </a>
+    <a href="tel:+918767075769" class="contact-card fade">
+      <div class="cc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></div>
+      <div><div class="cc-label">Phone</div><div class="cc-value">+91 8767075769</div></div>
+    </a>
+    <a href="https://www.linkedin.com/in/suyogkapse/" target="_blank" class="contact-card fade">
+      <div class="cc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
+      <div><div class="cc-label">LinkedIn</div><div class="cc-value">linkedin.com/in/suyogkapse</div></div>
+    </a>
+    <a href="https://github.com/SuyogKapse" target="_blank" class="contact-card fade">
+      <div class="cc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg></div>
+      <div><div class="cc-label">GitHub</div><div class="cc-value">github.com/SuyogKapse</div></div>
+    </a>
+  </div>
+</div>
+</section>
+
+<footer>
+  <span>Suyog Kapse</span> &nbsp;·&nbsp; Associate Cloud Consultant &nbsp;·&nbsp; Pune, India
+  <div>© 2025</div>
+</footer>
+
+<script>
+  const fades = document.querySelectorAll('.fade');
+  const io = new IntersectionObserver(entries => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('in'), (i % 5) * 80);
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  fades.forEach(el => io.observe(el));
+
+  const bars = document.querySelectorAll('.skill-bar');
+  const barObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const w = e.target.getAttribute('data-w') || 80;
+        setTimeout(() => { e.target.style.width = w + '%'; }, 100);
+        barObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  bars.forEach(b => barObs.observe(b));
+</script>
+</body>
+</html>
